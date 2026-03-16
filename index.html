@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquino Gomes | Letras – UFPB</title>
+    
+    <!-- Favicon (ícone da aba do navegador) -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Recomendado: ícones adicionais para melhor compatibilidade -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
+        
+        :root {
+            --primary: #6A00FF;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0B0F3B 0%, #1A0B3D 50%, #6A00FF 100%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .nav-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover {
+            color: #6A00FF;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(106 0 255 / 0.4);
+        }
+
+        .modal {
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes modalPop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .section {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body class="bg-[#0B0F3B] text-white min-h-screen overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-[#6A00FF] to-[#00D4FF] rounded-2xl flex items-center justify-center text-2xl font-bold">AG</div>
+                <div>
+                    <span class="title-font text-2xl font-semibold tracking-tighter">Aquino Gomes</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" onclick="navigateTo('home')" class="nav-link">Home</a>
+                <a href="#sobre" onclick="navigateTo('sobre')" class="nav-link">Sobre</a>
+                <a href="#projetos" onclick="navigateTo('projetos')" class="nav-link">Projetos</a>
+                <a href="#trabalhos" onclick="navigateTo('trabalhos')" class="nav-link">Trabalhos Acadêmicos</a>
+                <a href="#poesia" onclick="navigateTo('poesia')" class="nav-link">Poesia</a>
+                <a href="#biblioteca" onclick="navigateTo('biblioteca')" class="nav-link">Biblioteca</a>
+                <a href="#pesquisas" onclick="navigateTo('pesquisas')" class="nav-link">Pesquisas</a>
+                <a href="#contato" onclick="navigateTo('contato')" class="nav-link">Contato</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleAdminMode()" id="admin-btn"
+                        class="px-6 py-2.5 rounded-2xl bg-white/10 hover:bg-white/20 text-sm font-medium flex items-center gap-2 transition-all">
+                    <i class="fas fa-cog"></i>
+                    <span id="admin-text">Modo Admin</span>
+                </button>
+                
+                <button onclick="window.location.reload()" 
+                        class="w-9 h-9 glass rounded-2xl flex items-center justify-center text-xl hover:rotate-12 transition-transform">
+                    <i class="fas fa-sync"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 pt-20 pb-16 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl text-sm">
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    Estudante de Letras – Português | UFPB
+                </div>
+                
+                <h1 class="title-font text-7xl md:text-8xl font-bold leading-none tracking-tighter">
+                    Aquino Gomes
+                </h1>
+                
+                <p class="text-2xl text-gray-300 max-w-md">
+                    Linguística • Literatura • Educação Linguística
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projetos" onclick="navigateTo('projetos')" 
+                       class="px-8 py-4 bg-[#6A00FF] hover:bg-[#7A1AFF] rounded-3xl font-medium flex items-center gap-3 transition-all">
+                        <i class="fas fa-folder"></i> Conhecer Projetos
+                    </a>
+                    <a href="#pesquisas" onclick="navigateTo('pesquisas')" 
+                       class="px-8 py-4 border border-white/30 hover:border-white/60 rounded-3xl font-medium transition-all">
+                        Ver Pesquisas
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex justify-center md:justify-end">
+                <div onclick="changeLogo()" class="relative cursor-pointer group">
+                    <img id="profile-img" 
+                         src="https://picsum.photos/id/1011/600/600" 
+                         alt="Aquino Gomes – Logo"
+                         class="w-80 h-80 object-cover rounded-3xl border-8 border-white/20 shadow-2xl ring-8 ring-[#6A00FF]/30 transition-all group-hover:scale-105">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
+                        <div class="text-center">
+                            <i class="fas fa-camera text-4xl mb-2"></i>
+                            <p class="text-sm">Clique para mudar logo</p>
+                            <p class="text-xs opacity-70">(Modo Admin)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center gap-2 text-xs tracking-widest">
+            <span>ROLE PARA EXPLORAR</span>
+            <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section py-24 bg-[#0B0F3B]">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-[#6A00FF] text-sm tracking-widest">01 • TRAJETÓRIA</span>
+                    <h2 class="title-font text-5xl font-semibold">Sobre mim</h2>
+                </div>
+                <button onclick="editAbout()" class="admin-only hidden px-5 py-2 text-sm glass rounded-2xl flex items-center gap-2">
+                    <i class="fas fa-edit"></i> Editar
+                </button>
+            </div>
+            
+            <div class="glass rounded-3xl p-10 text-lg leading-relaxed" id="about-text">
+                Estudante do Curso de Letras – Português na Universidade Federal da Paraíba (UFPB). 
+                Apaixonado por Linguística, com ênfase nas teorias de Ferdinand de Saussure, filologia românica e educação linguística. 
+                Desenvolvo pesquisas sobre o advento da Linguística moderna, gramática comparada e poética autoral. 
+                Meu objetivo é unir teoria e prática no ensino da língua portuguesa.
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="section py-24 bg-gradient-to-b from-[#0B0F3B] to-[#1A0B3D]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <span class="text-[#6A00FF] text-sm tracking-widest">02 • ACADÊMICO</span>
+                    <h2 class="title-font text-5xl font-semibold">Projetos Acadêmicos</h2>
+                </div>
+                <button onclick="showAddModal('project')" class="admin-only hidden px-6 py-3 bg-[#6A00FF] rounded-3xl flex items-center gap-3 text-sm">
+                    <i class="fas fa-plus"></i> Novo Projeto
+                </button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid"></div>
+        </div>
+    </section>
+
+    <!-- TRABALHOS ACADÊMICOS -->
+    <section id="trabalhos" class="section py-24 bg-[#0B0F3B]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <span class="text-[#6A00FF] text-sm tracking-widest">03 • ENSINO & PESQUISA</span>
+                    <h2 class="title-font text-5xl font-semibold">Trabalhos Acadêmicos</h2>
+                </div>
+                <button onclick="showAddModal('trabalho')" class="admin-only hidden px-6 py-3 bg-[#6A00FF] rounded-3xl flex items-center gap-3 text-sm">
+                    <i class="fas fa-plus"></i> Novo Trabalho
+                </button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="trabalhos-grid"></div>
+        </div>
+    </section>
+
+    <!-- POESIA -->
+    <section id="poesia" class="section py-24 bg-gradient-to-b from-[#1A0B3D] to-[#0B0F3B]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <span class="text-[#6A00FF] text-sm tracking-widest">04 • AUTORAL</span>
+                    <h2 class="title-font text-5xl font-semibold">Poesia Autoral</h2>
+                </div>
+                <button onclick="showAddModal('poetry')" class="admin-only hidden px-6 py-3 bg-[#6A00FF] rounded-3xl flex items-center gap-3 text-sm">
+                    <i class="fas fa-plus"></i> Publicar Poesia
+                </button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8" id="poetry-grid"></div>
+        </div>
+    </section>
+
+    <!-- BIBLIOTECA -->
+    <section id="biblioteca" class="section py-24 bg-[#0B0F3B]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <span class="text-[#6A00FF] text-sm tracking-widest">05 • DIGITAL</span>
+                    <h2 class="title-font text-5xl font-semibold">Biblioteca Digital</h2>
+                </div>
+                <button onclick="showAddModal('material')" class="admin-only hidden px-6 py-3 bg-[#6A00FF] rounded-3xl flex items-center gap-3 text-sm">
+                    <i class="fas fa-plus"></i> Adicionar Material
+                </button>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6" id="library-grid"></div>
+        </div>
+    </section>
+
+    <!-- PESQUISAS -->
+    <section id="pesquisas" class="section py-24 bg-gradient-to-b from-[#0B0F3B] to-[#1A0B3D]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <span class="text-[#6A00FF] text-sm tracking-widest">06 • CIENTÍFICO</span>
+                    <h2 class="title-font text-5xl font-semibold">Pesquisas & Artigos</h2>
+                </div>
+                <button onclick="showAddModal('research')" class="admin-only hidden px-6 py-3 bg-[#6A00FF] rounded-3xl flex items-center gap-3 text-sm">
+                    <i class="fas fa-plus"></i> Novo Artigo
+                </button>
+            </div>
+            
+            <div class="space-y-8" id="research-list"></div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section py-24 bg-[#0B0F3B]">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="title-font text-5xl font-semibold mb-8">Vamos conversar?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="https://instagram.com/gomes.letras" target="_blank" class="glass p-8 rounded-3xl hover:scale-105 transition-all flex flex-col items-center gap-4">
+                    <i class="fab fa-instagram text-5xl text-[#E4405F]"></i>
+                    <div class="font-medium">@gomes.letras</div>
+                </a>
+                
+                <a href="https://wa.me/5583993178439" target="_blank" class="glass p-8 rounded-3xl hover:scale-105 transition-all flex flex-col items-center gap-4">
+                    <i class="fab fa-whatsapp text-5xl text-[#25D366]"></i>
+                    <div class="font-medium">(83) 99317-8439</div>
+                </a>
+                
+                <a href="mailto:aquinogomes2478@gmail.com" class="glass p-8 rounded-3xl hover:scale-105 transition-all flex flex-col items-center gap-4">
+                    <i class="fas fa-envelope text-5xl"></i>
+                    <div class="font-medium">aquinogomes2478@gmail.com</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black/80 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex justify-center gap-3 mb-6">
+                <div class="w-8 h-8 bg-gradient-to-br from-[#6A00FF] to-[#00D4FF] rounded-2xl flex items-center justify-center text-xl">AG</div>
+            </div>
+            <p class="text-sm text-gray-400">Aquino Gomes • Estudante de Letras – Português • Universidade Federal da Paraíba</p>
+            <p class="text-xs text-gray-500 mt-4">© 2026 • Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[9999]">
+        <div class="modal glass max-w-lg w-full mx-4 rounded-3xl p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modal-title" class="text-2xl font-semibold">Adicionar Item</h3>
+                <button onclick="closeModal()" class="text-3xl leading-none">×</button>
+            </div>
+            
+            <div id="modal-content"></div>
+            
+            <div class="flex gap-4 mt-8">
+                <button onclick="closeModal()" class="flex-1 py-4 border border-white/30 rounded-3xl text-sm font-medium">Cancelar</button>
+                <button onclick="saveModalItem()" class="flex-1 py-4 bg-[#6A00FF] rounded-3xl text-sm font-medium">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let data = {
+            projects: JSON.parse(localStorage.getItem('projects')) || [
+                { id: 1, title: "O advento da Linguística moderna", desc: "Estudo comparativo entre Saussure e a gramática tradicional", area: "Linguística Histórica", ano: "2025", img: "https://picsum.photos/id/201/600/400" },
+            ],
+            trabalhos: JSON.parse(localStorage.getItem('trabalhos')) || [
+                { id: 1, title: "Análise saussuriana aplicada ao português brasileiro", desc: "Aplicação dos conceitos de langue e parole em variedades do português", carga: "Monografia – 2025", conteudo: "Capítulo 1: Teoria • Capítulo 2: Análise" },
+            ],
+            poetry: JSON.parse(localStorage.getItem('poetry')) || [
+                { id: 1, title: "Signos do Silêncio", texto: "Nas linhas da língua\nO silêncio fala mais\nQue mil palavras ditas...", data: "15/03/2026" }
+            ],
+            materials: JSON.parse(localStorage.getItem('materials')) || [
+                { id: 1, title: "Resumo CLG – Saussure", tipo: "PDF", desc: "Principais conceitos do Curso de Linguística Geral", file: "#" }
+            ],
+            research: JSON.parse(localStorage.getItem('research')) || [
+                { id: 1, title: "Neogramáticos e regularidade fonética", resumo: "Crítica à escola de Leipzig", texto: "Texto completo...", referencias: "Brugmann, 1878" }
+            ]
+        };
+
+        let currentEditType = '';
+        let currentEditId = null;
+        let adminMode = false;
+
+        function renderProjects() {
+            document.getElementById('projects-grid').innerHTML = data.projects.map(p => `
+                <div class="card glass rounded-3xl overflow-hidden">
+                    <img src="${p.img}" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between text-sm">
+                            <span class="bg-white/10 px-3 py-1 rounded-2xl">${p.area}</span>
+                            <span class="text-gray-400">${p.ano}</span>
+                        </div>
+                        <h3 class="font-semibold text-xl mt-4">${p.title}</h3>
+                        <p class="text-sm text-gray-400 mt-2 line-clamp-3">${p.desc}</p>
+                        ${adminMode ? `
+                        <div class="flex gap-3 mt-6">
+                            <button onclick="editItem('project', ${p.id});event.stopPropagation()" class="flex-1 py-2 text-xs border border-white/30 rounded-2xl">Editar</button>
+                            <button onclick="deleteItem('project', ${p.id});event.stopPropagation()" class="flex-1 py-2 text-xs bg-red-500/20 text-red-400 rounded-2xl">Excluir</button>
+                        </div>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTrabalhos() {
+            document.getElementById('trabalhos-grid').innerHTML = data.trabalhos.map(t => `
+                <div class="card glass rounded-3xl p-8">
+                    <h3 class="font-semibold text-2xl">${t.title}</h3>
+                    <p class="mt-3 text-gray-400">${t.desc}</p>
+                    <div class="mt-6 pt-6 border-t border-white/10 flex justify-between text-sm">
+                        <div><span class="text-[#6A00FF]">Tipo:</span> ${t.carga}</div>
+                    </div>
+                    ${adminMode ? `
+                    <div class="flex gap-3 mt-8">
+                        <button onclick="editItem('trabalho', ${t.id});event.stopPropagation()" class="flex-1 py-3 text-xs border border-white/30 rounded-2xl">Editar</button>
+                        <button onclick="deleteItem('trabalho', ${t.id});event.stopPropagation()" class="flex-1 py-3 text-xs bg-red-500/20 text-red-400 rounded-2xl">Excluir</button>
+                    </div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function renderPoetry() {
+            document.getElementById('poetry-grid').innerHTML = data.poetry.map(p => `
+                <div class="glass rounded-3xl p-8">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="font-medium text-2xl">${p.title}</h3>
+                            <p class="text-xs text-gray-400 mt-1">${p.data}</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 italic text-lg leading-relaxed border-l-4 border-[#6A00FF] pl-6">
+                        ${p.texto.replace(/\n/g, '<br>')}
+                    </div>
+                    ${adminMode ? `
+                    <div class="flex gap-3 mt-8">
+                        <button onclick="editItem('poetry', ${p.id});event.stopPropagation()" class="flex-1 py-3 text-xs border border-white/30 rounded-2xl">Editar</button>
+                        <button onclick="deleteItem('poetry', ${p.id});event.stopPropagation()" class="flex-1 py-3 text-xs bg-red-500/20 text-red-400 rounded-2xl">Excluir</button>
+                    </div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function renderLibrary() {
+            document.getElementById('library-grid').innerHTML = data.materials.map(m => `
+                <div class="glass rounded-3xl p-6 flex flex-col">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-file-pdf text-4xl text-red-400"></i>
+                        <div>
+                            <div class="font-medium">${m.title}</div>
+                            <div class="text-xs text-gray-400">${m.tipo}</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 flex-1">${m.desc}</p>
+                    <a href="${m.file}" target="_blank" class="mt-8 block text-center py-4 border border-white/30 hover:border-white/60 rounded-3xl text-sm transition-all">Baixar</a>
+                    ${adminMode ? `
+                    <div class="flex gap-3 mt-4">
+                        <button onclick="editItem('material', ${m.id});event.stopPropagation()" class="flex-1 py-2 text-xs border border-white/30 rounded-2xl">Editar</button>
+                        <button onclick="deleteItem('material', ${m.id});event.stopPropagation()" class="flex-1 py-2 text-xs bg-red-500/20 text-red-400 rounded-2xl">Excluir</button>
+                    </div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function renderResearch() {
+            document.getElementById('research-list').innerHTML = data.research.map(r => `
+                <div class="glass rounded-3xl p-8">
+                    <h3 class="text-2xl font-medium">${r.title}</h3>
+                    <p class="text-sm text-[#6A00FF] mt-2">${r.resumo}</p>
+                    <div class="mt-8 text-sm leading-relaxed">${r.texto}</div>
+                    <div class="mt-8 text-xs text-gray-400">Referências: ${r.referencias}</div>
+                    ${adminMode ? `
+                    <div class="flex gap-3 mt-8">
+                        <button onclick="editItem('research', ${r.id});event.stopPropagation()" class="flex-1 py-3 text-xs border border-white/30 rounded-2xl">Editar</button>
+                        <button onclick="deleteItem('research', ${r.id});event.stopPropagation()" class="flex-1 py-3 text-xs bg-red-500/20 text-red-400 rounded-2xl">Excluir</button>
+                    </div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function showAddModal(type) {
+            currentEditType = type;
+            currentEditId = null;
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal-title').textContent = `Novo ${getTypeName(type)}`;
+            generateForm(type);
+        }
+
+        function editItem(type, id) {
+            currentEditType = type;
+            currentEditId = id;
+            const collection = getCollection(type);
+            const item = collection.find(i => i.id === id);
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal-title').textContent = `Editar ${getTypeName(type)}`;
+            generateForm(type, item);
+        }
+
+        function getTypeName(type) {
+            const names = {
+                project: 'Projeto',
+                trabalho: 'Trabalho Acadêmico',
+                poetry: 'Poesia',
+                material: 'Material',
+                research: 'Artigo'
+            };
+            return names[type] || type;
+        }
+
+        function getCollection(type) {
+            if (type === 'poetry') return data.poetry;
+            if (type === 'trabalho') return data.trabalhos;
+            return data[type + 's'] || data[type];
+        }
+
+        function generateForm(type, item = {}) {
+            const content = document.getElementById('modal-content');
+            let html = '';
+
+            if (type === 'project') {
+                html = `
+                    <input id="m-title" class="w-full bg-white/10 rounded-2xl px-6 py-4 mb-4" placeholder="Título" value="${item.title||''}">
+                    <textarea id="m-desc" class="w-full bg-white/10 rounded-2xl px-6 py-4 h-32 mb-4" placeholder="Descrição">${item.desc||''}</textarea>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input id="m-area" class="w-full bg-white/10 rounded-2xl px-6 py-4" placeholder="Área" value="${item.area||''}">
+                        <input id="m-ano" class="w-full bg-white/10 rounded-2xl px-6 py-4" placeholder="Ano" value="${item.ano||''}">
+                    </div>
+                `;
+            } else if (type === 'trabalho') {
+                html = `
+                    <input id="m-title" class="w-full bg-white/10 rounded-2xl px-6 py-4 mb-4" placeholder="Título" value="${item.title||''}">
+                    <textarea id="m-desc" class="w-full bg-white/10 rounded-2xl px-6 py-4 h-32 mb-4" placeholder="Descrição">${item.desc||''}</textarea>
+                    <input id="m-carga" class="w-full bg-white/10 rounded-2xl px-6 py-4" placeholder="Tipo / Ano / Carga (ex: Monografia 2025)" value="${item.carga||''}">
+                `;
+            } else if (type === 'poetry') {
+                html = `
+                    <input id="m-title" class="w-full bg-white/10 rounded-2xl px-6 py-4 mb-4" placeholder="Título" value="${item.title||''}">
+                    <textarea id="m-texto" class="w-full bg-white/10 rounded-2xl px-6 py-4 h-64" placeholder="Texto da poesia">${item.texto||''}</textarea>
+                `;
+            } else if (type === 'material') {
+                html = `
+                    <input id="m-title" class="w-full bg-white/10 rounded-2xl px-6 py-4 mb-4" placeholder="Título" value="${item.title||''}">
+                    <input id="m-tipo" class="w-full bg-white/10 rounded-2xl px-6 py-4 mb-4" placeholder="Tipo (PDF, Apostila, Slides...)" value="${item.tipo||''}">
+                    <textarea id="m-desc" class="w-full bg-white/10 rounded-2xl px-6 py-4 h-32" placeholder="Descrição">${item.desc||''}</textarea>
+                `;
+            } else if (type === 'research') {
+                html = `
+                    <input id="m-title" class="w-full bg-white/10 rounded-2xl px-6 py-4 mb-4" placeholder="Título" value="${item.title||''}">
+                    <input id="m-resumo" class="w-full bg-white/10 rounded-2xl px-6 py-4 mb-4" placeholder="Resumo" value="${item.resumo||''}">
+                    <textarea id="m-texto" class="w-full bg-white/10 rounded-2xl px-6 py-4 h-48" placeholder="Texto completo">${item.texto||''}</textarea>
+                `;
+            }
+
+            content.innerHTML = html;
+        }
+
+        function saveModalItem() {
+            const type = currentEditType;
+            const collection = getCollection(type);
+            const isNew = currentEditId === null;
+
+            let item = isNew ? { id: Date.now() } : collection.find(i => i.id === currentEditId);
+
+            item.title = document.getElementById('m-title')?.value || '';
+
+            if (type === 'project') {
+                item.desc = document.getElementById('m-desc').value;
+                item.area = document.getElementById('m-area').value;
+                item.ano = document.getElementById('m-ano').value || new Date().getFullYear();
+                if (isNew) item.img = `https://picsum.photos/id/${Math.floor(Math.random()*300)+100}/600/400`;
+            } else if (type === 'trabalho') {
+                item.desc = document.getElementById('m-desc').value;
+                item.carga = document.getElementById('m-carga').value;
+            } else if (type === 'poetry') {
+                item.texto = document.getElementById('m-texto').value;
+                if (isNew) item.data = new Date().toLocaleDateString('pt-BR');
+            } else if (type === 'material') {
+                item.tipo = document.getElementById('m-tipo').value;
+                item.desc = document.getElementById('m-desc').value;
+                if (isNew) item.file = '#';
+            } else if (type === 'research') {
+                item.resumo = document.getElementById('m-resumo').value;
+                item.texto = document.getElementById('m-texto').value;
+                if (isNew) item.referencias = 'Referências pendentes';
+            }
+
+            if (isNew) collection.push(item);
+
+            localStorage.setItem(type === 'poetry' ? 'poetry' : type === 'trabalho' ? 'trabalhos' : type + 's', JSON.stringify(collection));
+            closeModal();
+            refreshAll();
+        }
+
+        function deleteItem(type, id) {
+            if (!confirm('Excluir permanentemente?')) return;
+            const collection = getCollection(type);
+            const key = type === 'poetry' ? 'poetry' : type === 'trabalho' ? 'trabalhos' : type + 's';
+            data[key.replace('s','')] = collection.filter(i => i.id !== id);
+            localStorage.setItem(key, JSON.stringify(data[key.replace('s','')]));
+            refreshAll();
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        function refreshAll() {
+            renderProjects();
+            renderTrabalhos();
+            renderPoetry();
+            renderLibrary();
+            renderResearch();
+        }
+
+        function toggleAdminMode() {
+            adminMode = !adminMode;
+            const btn = document.getElementById('admin-btn');
+            const text = document.getElementById('admin-text');
+
+            if (adminMode) {
+                btn.classList.add('bg-[#6A00FF]', 'text-white');
+                text.textContent = 'Sair do Admin';
+                document.querySelectorAll('.admin-only').forEach(el => el.classList.remove('hidden'));
+            } else {
+                btn.classList.remove('bg-[#6A00FF]', 'text-white');
+                text.textContent = 'Modo Admin';
+                document.querySelectorAll('.admin-only').forEach(el => el.classList.add('hidden'));
+            }
+            refreshAll();
+        }
+
+        function navigateTo(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function changeLogo() {
+            if (!adminMode) return alert('Ative o Modo Admin para alterar a logo.');
+            const url = prompt('Cole a URL da sua logo pessoal (recomendado: imagem quadrada 600x600 ou maior):', '');
+            const img = document.getElementById('profile-img');
+            if (url && url.trim()) {
+                img.src = url.trim();
+            } else {
+                img.src = `https://picsum.photos/id/${Math.floor(Math.random()*900)+100}/600/600`;
+            }
+        }
+
+        function editAbout() {
+            if (!adminMode) return;
+            const current = document.getElementById('about-text').innerHTML.trim();
+            const novo = prompt('Edite o texto Sobre:', current);
+            if (novo !== null) document.getElementById('about-text').innerHTML = novo;
+        }
+
+        function init() {
+            refreshAll();
+            console.log('Plataforma acadêmica carregada – com favicon');
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
